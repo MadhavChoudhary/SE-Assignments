@@ -42,11 +42,6 @@ We have two main use cases from the prespective of the actual user and one from 
 
 ### Use Case 2
 
-
-![Sequence1](Images/Assignment1-SequenceDiagram-1.png)
-
-* This is for the register use case. The flow of information and the procedure of registration can be easily understood from the diagram
-
 ![Sequence2](Images/Assignment1-SequenceDiagram-2.png)
 
 * This is for the getRide use case. 
