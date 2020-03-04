@@ -34,18 +34,18 @@
 
 We have two main use cases from the prespective of the actual user and one from the admin.
 
-![Sequence1](Images/Assignment1-SequenceDiagram-1)
+![Sequence1](Images/Assignment1-SequenceDiagram-1.png)
 
 * This is for the register use case. The flow of information and the procedure of registration can be easily understood from the diagram
 
-![Sequence2](Images/Assignment1-SequenceDiagram-2)
+![Sequence2](Images/Assignment1-SequenceDiagram-2.png)
 
 * This is for the getRide use case. 
 * Validation, messages for starting and stopping rides and location data collection to the Cycle class can be clearly seen.
 
 This can be more detailed, but for simplicity many simple actions are omitted.
 
-![Sequence2](Images/Assignment1-SequenceDiagram-3)
+![Sequence2](Images/Assignment1-SequenceDiagram-3.png)
 
 * This is for the monitor use case from the admin.
 * Statistics data will be collected from all the cyles and methods for getting the required features will be run.
