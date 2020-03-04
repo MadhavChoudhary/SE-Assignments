@@ -34,9 +34,13 @@
 
 We have two main use cases from the prespective of the actual user and one from the admin.
 
+### Use Case 1
+
 ![Sequence1](Images/Assignment1-SequenceDiagram-1)
 
 * This is for the register use case. The flow of information and the procedure of registration can be easily understood from the diagram
+
+### Use Case 2
 
 ![Sequence2](Images/Assignment1-SequenceDiagram-2)
 
@@ -44,6 +48,8 @@ We have two main use cases from the prespective of the actual user and one from 
 * Validation, messages for starting and stopping rides and location data collection to the Cycle class can be clearly seen.
 
 This can be more detailed, but for simplicity many simple actions are omitted.
+
+### Use Case 3
 
 ![Sequence2](Images/Assignment1-SequenceDiagram-3)
 
