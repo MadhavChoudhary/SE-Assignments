@@ -263,10 +263,10 @@ In this case, branch coverage is also satisfied with the same test cases.
 
 The test files with 100% statement coverage are [here](Results/StatementCoverage).  
 The test files with 100% branch coverage are [here](Results/BranchCoverage).  
-Code coverage results are [here](Results/coverage.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/coverage.html).  
+Code coverage results are [here](Results/coverage.html) and you can see it online [here](https://madhavchoudhary.github.io/SE-Assignments/Assignment2/Results/coverage.html).  
 
-Test results for original code with bugs is [here](Results/testold.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/testold.html).  
-Test results for modified code is [here](Results/testnew.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/testnew.html).  
+Test results for original code with bugs is [here](Results/testold.html) and you can see it online [here](https://madhavchoudhary.github.io/SE-Assignments/Assignment2/Results/testold.html).  
+Test results for modified code is [here](Results/testnew.html) and you can see it online [here](https://madhavchoudhary.github.io/SE-Assignments/Assignment2/Results/testnew.html).  
 
 The original `Set.java` is [here](Results/SetOld.java).  
 The new `Set.java` is [here](Results/SetNew.java).  
