@@ -261,10 +261,10 @@ In this case, branch coverage is also satisfied with the same test cases.
 
 ## Results
 
-The test files with 100% statement coverage are [here](Results/StatementCoverage).</br>
-The test files with 100% branch coverage are [here](Results/BranchCoverage).</br>
-Code coverage results are [here](Results/coverage.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/coverage.html).</br>
+The test files with 100% statement coverage are [here](Results/StatementCoverage).  
+The test files with 100% branch coverage are [here](Results/BranchCoverage).  
+Code coverage results are [here](Results/coverage.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/coverage.html).  
 
-Test results for original code with bugs is [here](Results/testold.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/testold.html).</br>
-Test results for modified code is [here](Results/testnew.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/testnew.html).</br>
-The patch file for modifications (diff file) is [here](Results/bugs.diff).</br>
+Test results for original code with bugs is [here](Results/testold.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/testold.html).  
+Test results for modified code is [here](Results/testnew.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/testnew.html).  
+The patch file for modifications (diff file) is [here](Results/bugs.diff).  
