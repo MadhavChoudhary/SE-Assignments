@@ -267,4 +267,7 @@ Code coverage results are [here](Results/coverage.html) and you can see it onlin
 
 Test results for original code with bugs is [here](Results/testold.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/testold.html).  
 Test results for modified code is [here](Results/testnew.html) and you can see it online [here](madhavchoudhary.github.io/SE-Assignments/Results/testnew.html).  
+
+The original `Set.java` is [here](Results/SetOld.java).  
+The new `Set.java` is [here](Results/SetNew.java).  
 The patch file for modifications (diff file) is [here](Results/bugs.diff).  
