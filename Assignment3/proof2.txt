@@ -1,0 +1,33 @@
+Q = ( n>=0 )
+R = ( i == 2*n )
+
+wp( S, i == 2*n )
+wp( i := 0; ... ;i := 2*i, i == 2*n )
+wp( i := 0; ... , wp( i:= 2*i, i == 2*n ) ) by sequential rule
+wp( i := 0; ... , 2*i == 2*n ) by assignment rule
+wp( i := 0; ... , i == n )
+wp( i := 0, wp( while B I D S, R ) )
+
+	wp( while B I D S, R )
+	( i<=n ) && ( i<n && i<=n ==> wp( i := i+1, i<=n ) ) && ( i>=n && i<=n ==> i == n ) && ( i<=n ==> n-i >= 0) && ( i<n && i<=n ==> wp( tmp := n-i; i := i+1, tmp > n-i ) )
+	( i<=n ) && ( i<n && i<=n ==> i+1<=n ) && ( i>=n && i<=n ==> i==n ) && true && ( i<n && i<=n ==> wp( tmp := n-i; i := i+1, tmp > n-i ) ) by assignment rule and simplification
+	( i<=n ) && ( i<n ==> i+1<=n ) && ( i==n ==> i==n ) && ( i<n  ==> wp( tmp := n-i; i := i+1, tmp > n-i ) )
+	( i<=n ) && true && true && ( i<n ==> wp( tmp := n-i; i := i+1, tmp > n-i ) )
+	( i<=n ) && ( i<n ==> wp( tmp := n-i; i := i+1, tmp > n-i ) )
+
+		wp( tmp := n-i; i := i+1, tmp > n-i )
+		wp( tmp := n-i, wp( i := i+1, tmp > n-i ) ) by sequential rule
+		wp( tmp := n-i, tmp > n-i-1 ) by assignment rule
+		( n-i > n-i-1 ) by assignment rule
+		true
+
+	( i<=n ) && ( i<n ==> true )
+	( i<=n )
+
+wp( i := 0, wp( while B I D S, R ) )
+wp( i := 0, i<=n ) 
+( 0<=n ) by assignment rule
+
+Q ==> wp( S,R )
+( n >= 0 ) ==> ( 0<=n )
+So, program is true for the given precondition

@@ -1,0 +1,62 @@
+Q = ( n >= 1 )
+R = ( c == fib(n) )
+
+wp( S,R )
+wp( var p := 0; ... , c == fib(n) )
+wp( var p := 0; ... , wp( while B I D S, c == fib(n) ) ) by sequential rule
+
+	wp( while B I D S,R )
+	( 1<=i<=n && p==fib(i-1) && c==fib(i) ) && ( i<n && 1<=i<=n && p==fib(i-1) && c==fib(i) ==> wp(S,I)) && ( i>=n && 1<=i<=n && p==fib(i-1) && c==fib(i) ==> c==fib(n) ) && ( 1<=i<=n && p==fib(i-1) && c==fib(i) ==> n-i>=0 ) && ( i<n && 1<=i<=n && p==fib(i-1) && c==fib(i) ==> wp( tmp := n-i;S, tmp > n-i ) )
+	( 1<=i<=n && p==fib(i-1) && c==fib(i) ) && ( 1<=i<n && p==fib(i-1) && c==fib(i) ==> wp(S,I)) && ( i==n && p==fib(i-1) && c==fib(i) ==> c==fib(n) ) && ( 1<=i<=n && p==fib(i-1) && c==fib(i) ==> n-i>=0 ) && ( i<n && 1<=i<=n && p==fib(i-1) && c==fib(i) ==> wp( tmp := n-i;S, tmp > n-i ) )
+
+		( i==n && p==fib(i-1) && c==fib(i) ==> c==fib(n) )
+		( i==n && p==fib(n-1) && c==fib(n) ==> c==fib(n) ) is true
+
+		( 1<=i<=n && p==fib(i-1) && c==fib(i) ==> n-i>=0 ) is true
+
+	( 1<=i<=n && p==fib(i-1) && c==fib(i) ) && ( 1<=i<n && p==fib(i-1) && c==fib(i) ==> wp( S,I ) ) && ( i<n && 1<=i<=n && p==fib(i-1) && c==fib(i) ==> wp( tmp := n-i;S, tmp > n-i ) )
+
+		wp( S,I )
+		wp( var new := p+c; ... , wp( i := i+1, 1<=i<=n && p==fib(i-1) && c==fib(i) ) ) by sequential rule
+		wp( var new := p+c; ... , 1<=i+1<=n && p==fib(i+1-1) && c==fib(i+1) ) ) by assignment rule
+		wp( var new := p+c; ... , 0<=i<=n-1 && p==fib(i) && c==fib(i+1) )
+		wp( var new := p+c; ... , wp( c := new, 0<=i<=n-1 && p==fib(i) && c==fib(i+1) ) ) by sequential rule
+		wp( var new := p+c; ... , 0<=i<=n-1 && p==fib(i) && new==fib(i+1) ) by assignment rule
+		wp( var new := p+c, wp( p := c, 0<=i<=n-1 && p==fib(i) && new==fib(i+1) ) ) by sequential rule
+		wp( var new := p+c, 0<=i<=n-1 && c==fib(i) && new==fib(i+1) ) by assignment rule
+		0<=i<=n-1 && c==fib(i) && p+c==fib(i+1) by assignment rule
+
+		( 1<=i<n && p==fib(i-1) && c==fib(i) ==> wp( S,I ) )
+		( 1<=i<n && p==fib(i-1) && c==fib(i) ==> 0<=i<=n-1 && c==fib(i) && p+c==fib(i+1) )
+		( 1<=i<n && p==fib(i-1) && c==fib(i) ==> 0<=i<n && c==fib(i) && p+c==fib(i+1) ) is true by the formula
+
+		wp( tmp := n-i;S, tmp > n-i )
+		wp( tmp := n-i; var new := p+c; ..., wp( i := i+1, tmp > n-i ) ) by sequential rule
+		wp( tmp := n-i; var new := p+c; ..., tmp > n-i-1 ) by assignment rule
+		wp( tmp := n-i; var new := p+c; ..., wp( c:=new, tmp > n-i-1 ) ) by sequential rule
+		wp( tmp := n-i; var new := p+c; ..., tmp > n-i-1 ) by assignment rule
+		wp( tmp := n-i; var new := p+c; ..., wp( p:=c, tmp > n-i-1 ) ) by sequential rule
+		wp( tmp := n-i; var new := p+c; ..., tmp > n-i-1 ) by assignment rule
+		wp( tmp := n-i, wp( var new := p+c, tmp > n-i-1 ) ) by sequential rule
+		wp( tmp := n-i, tmp > n-i-1 ) by assignment rule
+		( n-i > n-i-1 ) is true
+
+		( i<n && 1<=i<=n && p==fib(i-1) && c==fib(i) ==> wp( tmp := n-i;S, tmp > n-i ) )
+		( i<n && 1<=i<=n && p==fib(i-1) && c==fib(i) ==> true ) is true
+
+
+	( 1<=i<=n && p==fib(i-1) && c==fib(i) ) && true && true
+	( 1<=i<=n && p==fib(i-1) && c==fib(i) )
+
+wp( var p := 0; ..., wp( var i := 1,( 1<=i<=n && p==fib(i-1) && c==fib(i) ) ) ) by sequential rule
+wp( var p := 0; ..., 1<=1<=n && p==fib(0) && c==fib(1) ) ) ) by assignment rule
+wp( var p := 0; c := 1, n>=1 && p==fib(0) && c==fib(1) )
+wp( var p := 0, wp( c := 1,n>=1 && p==fib(0) && c==fib(1) ) ) by sequential rule
+wp( var p := 0, n>=1 && p==fib(0) && 1==fib(1) ) by assignment rule
+wp( var p := 0, n>=1 && p==fib(0) ) by formula simplification
+( n>=1 && 0==fib(0) ) by formula for fib
+( n>=1 ) is true for states having n>=1
+
+Q ==> wp( S,R )
+( n>=1 ) => ( n>=1 ) is true
+So, the program is true for the given precondition.

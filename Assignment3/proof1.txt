@@ -1,0 +1,32 @@
+R = (x0 < 3 ==> x == 1) && (x0 >=3 ==> x < x0)
+
+wp( S, R )
+wp( x := x0 - 3; if B1 then S1 else S2, R )
+wp( x := x0 - 3, wp( if B1 then S1 else S2, R ) ) by sequential rule
+
+	wp( if B1 then S1 else S2, R )
+	B1 ==> wp( S1,R ) && !B1 ==> wp( S2,R ) by condition rule
+	( x<0 ) ==> wp( x := 1,R ) && !( x<0 ) ==> wp( if true then S3 else S4,R )
+	( x<0 ) ==> ( x0<3 ==> 1 == 1 ) && ( x0>=3 ==> 1<x0 ) && ( x>=0 ) ==> wp( if true then S3 else S4,R )
+	( x<0 ) ==> ( x0<3 ==> true ) && ( x0>=3 ==> 1<x0 ) && ( x>=0 ) ==> wp( if true then S3 else S4,R )
+	( x<0 ) ==> true && ( x0>=3 ==> 1<x0 ) && ( x>=0 ) ==> wp( if true then S3 else S4,R )
+	( x<0 ) ==> ( x0>=3 ==> x0>1 ) && ( x>=0 ) ==> wp( if true then S3 else S4,R )
+	( x<0 ) ==> true && ( x>=0 ) ==> wp( if true then S3 else S4,R )
+	( x>=0 ) ==> wp( if true then S3 else S4,R )
+
+		wp( if true then S3 else S4,R ) = ( true ==> wp( S3,R ) ) && ( false ==> wp( S4,R ) )
+		wp( S3,R ) by simplification
+		wp( x := x+1,  ( x0<3 ==> x==1 ) && ( x0 >=3 ==> x<x0 ) )
+		( x0 < 3 ==> x+1==1 ) && ( x0 >=3 ==> x+1 < x0 ) by assignment rule
+		( x0 < 3 ==> x == 0 ) && ( x0 >=3 ==> x+1 < x0 )
+
+	( x>=0 ) ==> ( x0 < 3 ==> x == 0 ) && ( x0 >=3 ==> x+1 < x0 )
+
+wp( x := x0 - 3, ( x>=0 ) ==> ( x0 < 3 ==> x == 0 ) && ( x0>=3 ==> x+1 < x0 ) ) 
+( x0-3>=0 ) ==> ( x0<3 ==> x0-3 == 0 ) && ( x0>=3 ==> x0-3+1 < x0 ) by assignment rule
+( x0>=3 ) ==> ( x0<3 ==> x0==3 ) && ( x0>=3 ==> -2<0 )
+( x0>=3 ) ==> ( x0<3 ==> x0==3 ) && ( x0>=3 ==> true )
+( x0>=3 ) ==> ( x0<3 ==> x0==3 )
+( x0>=3 ) ==> ( false ==> x0==3 )
+( x0>=3 ) ==> true
+So, the program is true for all states
